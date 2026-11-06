@@ -67,8 +67,15 @@ Vite + React, plain CSS, Firebase RTDB + anonymous auth, GitHub Pages via Action
 - Roster approved by Mehdi (2026-11-06).
 - 30 SVGs generated into public/characters/<id>.svg (referenced as characters/<id>.svg), drawn by an attribute-driven Python template (script was in the scratchpad, not kept). Visuals match attributes (mask, cape, armor, wings, weapon, energy glow, villain brows). Special art for tree, fox, rock, android, goo. Reviewed on a contact sheet; looks good. Committed and pushed (2026-11-06, commit ded7070); live site redeploys via Actions.
 
+## Phase 2 screens (2026-11-06)
+- Built: i18n (EN/FR, auto-detect + toggle, saved in localStorage), PlayerSelect, CharacterPick (tap + confirm bar), Waiting/ready screen, Reset game button, "Not me" and "Change hero" options.
+- Architecture: src/game/{rules.js (pure, tested), api.js (Firebase writes), useRoom.js (auth + subscriptions)}. Who-am-I is derived from room.players[name].uid == anonymous uid, so reloads/reconnects just work (no localStorage needed). Secret hero stored at secrets/<uid>/charId (owner-only read by rules).
+- Tested with two origins (localhost vs 127.0.0.1 = two anonymous users): name claiming greyed out live, both-ready screen on both sides. 7 tests pass (data + rules). Test data cleaned with Reset.
+- Database rules unchanged (no republish needed).
+
 ## Next steps
-1. Mehdi reviews the SVG art (ask before commit/push); then build the real game screens (Phase 2: player select, character pick, waiting).
+1. Commit/push Phase 2 (ask Mehdi), test on both Android phones.
+2. Phase 3: game board, turns, questions, guesses, lose-a-turn, win screen, rematch.
 2. Phase 1 content: 30 characters (EN/FR), questions, SVG art.
 2. Generate roster (30 characters with attributes, EN/FR).
 3. Set up repo, build prototype.
