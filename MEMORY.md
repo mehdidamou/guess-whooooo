@@ -65,7 +65,7 @@ Vite + React, plain CSS, Firebase RTDB + anonymous auth, GitHub Pages via Action
 - tests/data.test.js: 3 passing tests (30 unique chars, questions split roster, every character distinguishable by questions).
 - Generator script lives in the session scratchpad only; JSON files are the source of truth now.
 - Roster approved by Mehdi (2026-11-06).
-- 30 SVGs generated into public/characters/<id>.svg (referenced as characters/<id>.svg), drawn by an attribute-driven Python template (script was in the scratchpad, not kept). Visuals match attributes (mask, cape, armor, wings, weapon, energy glow, villain brows). Special art for tree, fox, rock, android, goo. Reviewed on a contact sheet; looks good. Not yet committed/pushed.
+- 30 SVGs generated into public/characters/<id>.svg (referenced as characters/<id>.svg), drawn by an attribute-driven Python template (script was in the scratchpad, not kept). Visuals match attributes (mask, cape, armor, wings, weapon, energy glow, villain brows). Special art for tree, fox, rock, android, goo. Reviewed on a contact sheet; looks good. Committed and pushed (2026-11-06, commit ded7070); live site redeploys via Actions.
 
 ## Next steps
 1. Mehdi reviews the SVG art (ask before commit/push); then build the real game screens (Phase 2: player select, character pick, waiting).
