@@ -73,9 +73,17 @@ Vite + React, plain CSS, Firebase RTDB + anonymous auth, GitHub Pages via Action
 - Tested with two origins (localhost vs 127.0.0.1 = two anonymous users): name claiming greyed out live, both-ready screen on both sides. 7 tests pass (data + rules). Test data cleaned with Reset.
 - Database rules unchanged (no republish needed).
 
+## Phase 3 game loop (2026-11-06)
+- Built: Board (30-card grid, tap to flip down, turn banner, status panel, question history), QuestionSheet (28 suggested questions with icons + free-form input), guess flow with confirm modal, End screen (winner, both heroes revealed, Play again).
+- Game state at rooms/family/game: {id, turn, skip, pending{from,kind,questionId|text|charId,answer}, winner, skipNote, log, reveal}. Random starter chosen by a transaction (startGameIfNeeded).
+- Suggested questions and guesses are auto-answered by the opponent's device from its own secret (answerFor); free-form questions get manual Yes/No buttons. Asker presses OK to log the answer and pass the turn. Wrong guess => guesser loses next turn (afterTurn). Rematch clears ready+game, players stay.
+- Flipped cards are local only (localStorage per game id + uid).
+- Tested end to end with two origins: suggested Q auto-answer, free-form manual answer, wrong guess + lose-a-turn banner, correct guess win + reveal on both sides, rematch back to pick. 11 unit tests pass, build OK. Rules unchanged.
+- Not yet done: real-phone test of Phase 3, visual polish of question sheet, Phase 4 polish (sounds, win animation, read-aloud TTS for Taninna, accessibility), reconnect edge cases.
+
 ## Next steps
-1. Commit/push Phase 2 (ask Mehdi), test on both Android phones.
-2. Phase 3: game board, turns, questions, guesses, lose-a-turn, win screen, rematch.
+1. Commit/push Phase 3 (ask Mehdi), play a real game on both Android phones.
+2. Phase 4 polish: sounds, win animation, read-aloud (TTS EN/FR), bigger icons for Taninna.
 2. Phase 1 content: 30 characters (EN/FR), questions, SVG art.
 2. Generate roster (30 characters with attributes, EN/FR).
 3. Set up repo, build prototype.
