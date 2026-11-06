@@ -1,0 +1,226 @@
+[
+ {
+  "id": "villain",
+  "attr": "villain",
+  "value": true,
+  "en": "Is your character a villain?",
+  "fr": "Ton personnage est-il un méchant ?",
+  "icon": "😈"
+ },
+ {
+  "id": "girl",
+  "attr": "girl",
+  "value": true,
+  "en": "Is your character a girl?",
+  "fr": "Ton personnage est-il une fille ?",
+  "icon": "👧"
+ },
+ {
+  "id": "human",
+  "attr": "human",
+  "value": true,
+  "en": "Is your character human?",
+  "fr": "Ton personnage est-il humain ?",
+  "icon": "🧑"
+ },
+ {
+  "id": "mask",
+  "attr": "mask",
+  "value": true,
+  "en": "Does your character wear a mask or helmet?",
+  "fr": "Ton personnage porte-t-il un masque ou un casque ?",
+  "icon": "🎭"
+ },
+ {
+  "id": "cape",
+  "attr": "cape",
+  "value": true,
+  "en": "Does your character wear a cape?",
+  "fr": "Ton personnage porte-t-il une cape ?",
+  "icon": "🦸"
+ },
+ {
+  "id": "flies",
+  "attr": "flies",
+  "value": true,
+  "en": "Can your character fly?",
+  "fr": "Ton personnage peut-il voler ?",
+  "icon": "🕊️"
+ },
+ {
+  "id": "strong",
+  "attr": "strong",
+  "value": true,
+  "en": "Is your character super strong?",
+  "fr": "Ton personnage est-il super fort ?",
+  "icon": "💪"
+ },
+ {
+  "id": "armor",
+  "attr": "armor",
+  "value": true,
+  "en": "Does your character wear armor?",
+  "fr": "Ton personnage porte-t-il une armure ?",
+  "icon": "🛡️"
+ },
+ {
+  "id": "weapon",
+  "attr": "weapon",
+  "value": true,
+  "en": "Does your character carry a weapon or tool?",
+  "fr": "Ton personnage porte-t-il une arme ou un outil ?",
+  "icon": "⚔️"
+ },
+ {
+  "id": "animal",
+  "attr": "animal",
+  "value": true,
+  "en": "Is your character like an animal?",
+  "fr": "Ton personnage ressemble-t-il à un animal ?",
+  "icon": "🐾"
+ },
+ {
+  "id": "energy",
+  "attr": "energy",
+  "value": true,
+  "en": "Does your character shoot magic or energy?",
+  "fr": "Ton personnage lance-t-il de la magie ou de l'énergie ?",
+  "icon": "⚡"
+ },
+ {
+  "id": "hair-black",
+  "attr": "hair",
+  "value": "black",
+  "en": "Does your character have black hair?",
+  "fr": "Ton personnage a-t-il les cheveux noirs ?",
+  "icon": "⚫"
+ },
+ {
+  "id": "hair-brown",
+  "attr": "hair",
+  "value": "brown",
+  "en": "Does your character have brown hair?",
+  "fr": "Ton personnage a-t-il les cheveux bruns ?",
+  "icon": "🟤"
+ },
+ {
+  "id": "hair-blond",
+  "attr": "hair",
+  "value": "blond",
+  "en": "Does your character have blond hair?",
+  "fr": "Ton personnage a-t-il les cheveux blonds ?",
+  "icon": "🟡"
+ },
+ {
+  "id": "hair-red",
+  "attr": "hair",
+  "value": "red",
+  "en": "Does your character have red hair?",
+  "fr": "Ton personnage a-t-il les cheveux roux ?",
+  "icon": "🔴"
+ },
+ {
+  "id": "hair-white",
+  "attr": "hair",
+  "value": "white",
+  "en": "Does your character have white hair?",
+  "fr": "Ton personnage a-t-il les cheveux blancs ?",
+  "icon": "⚪"
+ },
+ {
+  "id": "hair-none",
+  "attr": "hair",
+  "value": "none",
+  "en": "Does your character have no hair?",
+  "fr": "Ton personnage n'a-t-il pas de cheveux ?",
+  "icon": "🥚"
+ },
+ {
+  "id": "color-red",
+  "attr": "color",
+  "value": "red",
+  "en": "Is the main color red?",
+  "fr": "La couleur principale est-elle rouge ?",
+  "icon": "🟥"
+ },
+ {
+  "id": "color-blue",
+  "attr": "color",
+  "value": "blue",
+  "en": "Is the main color blue?",
+  "fr": "La couleur principale est-elle bleu ?",
+  "icon": "🟦"
+ },
+ {
+  "id": "color-green",
+  "attr": "color",
+  "value": "green",
+  "en": "Is the main color green?",
+  "fr": "La couleur principale est-elle vert ?",
+  "icon": "🟩"
+ },
+ {
+  "id": "color-yellow",
+  "attr": "color",
+  "value": "yellow",
+  "en": "Is the main color yellow?",
+  "fr": "La couleur principale est-elle jaune ?",
+  "icon": "🟨"
+ },
+ {
+  "id": "color-purple",
+  "attr": "color",
+  "value": "purple",
+  "en": "Is the main color purple?",
+  "fr": "La couleur principale est-elle violet ?",
+  "icon": "🟪"
+ },
+ {
+  "id": "color-black",
+  "attr": "color",
+  "value": "black",
+  "en": "Is the main color black?",
+  "fr": "La couleur principale est-elle noir ?",
+  "icon": "⬛"
+ },
+ {
+  "id": "color-orange",
+  "attr": "color",
+  "value": "orange",
+  "en": "Is the main color orange?",
+  "fr": "La couleur principale est-elle orange ?",
+  "icon": "🟧"
+ },
+ {
+  "id": "color-white",
+  "attr": "color",
+  "value": "white",
+  "en": "Is the main color white?",
+  "fr": "La couleur principale est-elle blanc ?",
+  "icon": "⬜"
+ },
+ {
+  "id": "color-pink",
+  "attr": "color",
+  "value": "pink",
+  "en": "Is the main color pink?",
+  "fr": "La couleur principale est-elle rose ?",
+  "icon": "🌸"
+ },
+ {
+  "id": "color-gray",
+  "attr": "color",
+  "value": "gray",
+  "en": "Is the main color gray?",
+  "fr": "La couleur principale est-elle gris ?",
+  "icon": "🩶"
+ },
+ {
+  "id": "color-teal",
+  "attr": "color",
+  "value": "teal",
+  "en": "Is the main color teal?",
+  "fr": "La couleur principale est-elle turquoise ?",
+  "icon": "🧊"
+ }
+]

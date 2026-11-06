@@ -54,8 +54,21 @@ Vite + React, plain CSS, Firebase RTDB + anonymous auth, GitHub Pages via Action
 
 - Rules published by Mehdi; page shows "Connected to Firebase". Firebase connection verified end to end.
 
+- Pushed to GitHub (main) after installing gh CLI via Homebrew and `gh auth login` (HTTPS, keyring) as mehdidamou. Plain git push failed first: no stored credentials.
+- Pages enabled via gh api (build_type workflow). First deploy succeeded. Live: https://mehdidamou.github.io/guess-whooooo/ . Not yet tested on a phone.
+
+- Live site confirmed "Connected to Firebase" on Mehdi's device. Phase 0 complete.
+
+## Phase 1 content (2026-11-06, in progress)
+- src/data/characters.json: 30 original characters (EN/FR names; attributes villain, girl, human, hair, color, mask, cape, flies, strong, armor, weapon, animal, energy). 13 girls, 3 villains, 3 non-human-ish (tree, fox, rock) + android + goo.
+- src/data/questions.json: 28 suggested yes/no questions (EN/FR, emoji icon) mapped to attributes. Auto-answered from the secret character.
+- tests/data.test.js: 3 passing tests (30 unique chars, questions split roster, every character distinguishable by questions).
+- Generator script lives in the session scratchpad only; JSON files are the source of truth now.
+- Roster approved by Mehdi (2026-11-06).
+- 30 SVGs generated into public/characters/<id>.svg (referenced as characters/<id>.svg), drawn by an attribute-driven Python template (script was in the scratchpad, not kept). Visuals match attributes (mask, cape, armor, wings, weapon, energy glow, villain brows). Special art for tree, fox, rock, android, goo. Reviewed on a contact sheet; looks good. Not yet committed/pushed.
+
 ## Next steps
-1. git init + push to GitHub (awaiting Mehdi's OK), enable Pages (Actions source).
+1. Mehdi reviews the SVG art (ask before commit/push); then build the real game screens (Phase 2: player select, character pick, waiting).
 2. Phase 1 content: 30 characters (EN/FR), questions, SVG art.
 2. Generate roster (30 characters with attributes, EN/FR).
 3. Set up repo, build prototype.
