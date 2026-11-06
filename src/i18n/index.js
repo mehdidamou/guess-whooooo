@@ -50,6 +50,10 @@ export const strings = {
     secretWas: '{name} was hiding:',
     playAgain: 'Play again',
     guessed: 'guessed',
+    soundFx: 'Sound effects',
+    readAloud: 'Read aloud',
+    readAloudOn: 'I will read the questions out loud.',
+    listen: 'Listen',
   },
   fr: {
     title: 'Guess Whooooo',
@@ -100,6 +104,10 @@ export const strings = {
     secretWas: '{name} cachait :',
     playAgain: 'Rejouer',
     guessed: 'a deviné',
+    soundFx: 'Effets sonores',
+    readAloud: 'Lecture à voix haute',
+    readAloudOn: 'Je lirai les questions à voix haute.',
+    listen: 'Écouter',
   },
 }
 

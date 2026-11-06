@@ -4,6 +4,7 @@ import { useRoom } from './game/useRoom.js'
 import { screenFor, whoAmI } from './game/rules.js'
 import { leavePlayer, resetRoom, startGameIfNeeded } from './game/api.js'
 import LangToggle from './components/LangToggle.jsx'
+import { SettingsContext, loadFlag, unlockAudio } from './audio.js'
 import PlayerSelect from './screens/PlayerSelect.jsx'
 import CharacterPick from './screens/CharacterPick.jsx'
 import Waiting from './screens/Waiting.jsx'
@@ -88,10 +89,34 @@ export default function App() {
     document.documentElement.lang = lang
   }, [lang])
 
+  const [sound, setSoundState] = useState(() => loadFlag('sound', true))
+  const [voice, setVoiceState] = useState(() => loadFlag('voice', false))
+  const settings = useMemo(
+    () => ({
+      sound,
+      voice,
+      setSound: (v) => {
+        localStorage.setItem('sound', v ? '1' : '0')
+        setSoundState(v)
+      },
+      setVoice: (v) => {
+        localStorage.setItem('voice', v ? '1' : '0')
+        setVoiceState(v)
+      },
+    }),
+    [sound, voice],
+  )
+  useEffect(() => {
+    window.addEventListener('pointerdown', unlockAudio)
+    return () => window.removeEventListener('pointerdown', unlockAudio)
+  }, [])
+
   return (
     <LangContext.Provider value={value}>
-      <LangToggle />
-      <Game />
+      <SettingsContext.Provider value={settings}>
+        <LangToggle />
+        <Game />
+      </SettingsContext.Provider>
     </LangContext.Provider>
   )
 }

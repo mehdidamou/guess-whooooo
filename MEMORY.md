@@ -81,9 +81,19 @@ Vite + React, plain CSS, Firebase RTDB + anonymous auth, GitHub Pages via Action
 - Tested end to end with two origins: suggested Q auto-answer, free-form manual answer, wrong guess + lose-a-turn banner, correct guess win + reveal on both sides, rematch back to pick. 11 unit tests pass, build OK. Rules unchanged.
 - Not yet done: real-phone test of Phase 3, visual polish of question sheet, Phase 4 polish (sounds, win animation, read-aloud TTS for Taninna, accessibility), reconnect edge cases.
 
+## Phase 3 verified on phones (2026-11-06)
+- Mehdi played a real game on both Android phones: "Works great". Game is live at https://mehdidamou.github.io/guess-whooooo/ (commit 32c6cf3).
+- Note: the Firebase room is shared (single fixed family room), so local dev testing collides with real play. Do not Reset the room while the family may be playing; ask first.
+
+## Phase 4 polish (2026-11-06, in progress, not yet pushed)
+- Added src/audio.js: WebAudio sound effects (turn chime, yes, no, wrong guess, win, lose) and read-aloud via browser speechSynthesis (en-US / fr-FR). Per-device toggles 🔊 and 🗣️ (saved in localStorage; sound on, voice off by default) next to the EN/FR toggle. Audio unlocks on first tap.
+- Board announces (sfx + optional voice): your turn, incoming question, answer to your question, wrong guess. Each question in the picker has a 🔊 listen button.
+- End screen: pop-in title, falling emoji confetti for the winner (hidden with prefers-reduced-motion), win/lose sound.
+- 11 tests + build pass. Toggles confirmed rendering in browser; full audio flow not tested locally because the shared room was in use (both names claimed), so needs a phone test.
+
 ## Next steps
-1. Commit/push Phase 3 (ask Mehdi), play a real game on both Android phones.
-2. Phase 4 polish: sounds, win animation, read-aloud (TTS EN/FR), bigger icons for Taninna.
+1. Push Phase 4 polish (ask Mehdi), test sounds/read-aloud on phones (French voice availability).
+2. Remaining ideas: difficulty option (fewer characters), win counter, accessibility pass, PWA/home-screen icon.
 2. Phase 1 content: 30 characters (EN/FR), questions, SVG art.
 2. Generate roster (30 characters with attributes, EN/FR).
 3. Set up repo, build prototype.

@@ -4,6 +4,7 @@ import questions from '../data/questions.json'
 import { LangContext, useT } from '../i18n/index.js'
 import CharacterCard, { imageUrl } from '../components/CharacterCard.jsx'
 import { answerFor, otherPlayer } from '../game/rules.js'
+import { SettingsContext, sfx, speak } from '../audio.js'
 import { answerPending, askQuestion, endTurn, makeGuess } from '../game/api.js'
 
 const byId = (id) => characters.find((c) => c.id === id)
@@ -41,6 +42,7 @@ export default function Board({ me, uid, game, secretId }) {
   const [guessMode, setGuessMode] = useState(false)
   const [target, setTarget] = useState(null)
   const [busy, setBusy] = useState(false)
+  const { sound, voice } = useContext(SettingsContext)
 
   const pending = game.pending
   const myTurn = game.turn === me
@@ -58,6 +60,36 @@ export default function Board({ me, uid, game, secretId }) {
     answeredRef.current = sig
     answerPending(pending, answerFor(pending, secret, questions))
   }, [pending, answered, secret, me, game.id, log.length])
+
+  // Sound effects and read-aloud, once per event on this device.
+  const announced = useRef('')
+  useEffect(() => {
+    const yesNoWord = (v) => (v ? t('yes') : t('no'))
+    let key = null
+    let play = null
+    let say = null
+    if (!pending && myTurn) {
+      key = `turn:${game.id}:${log.length}`
+      play = 'turn'
+      say = t('yourTurn')
+    } else if (pending && pending.from !== me && pending.kind !== 'guess') {
+      key = `q:${game.id}:${log.length}`
+      say = `${t('asks', { name: t(opp) })} ${questionText(pending, lang)}`
+    } else if (pending && pending.from === me && answered) {
+      key = `a:${game.id}:${log.length}`
+      if (pending.kind === 'guess') {
+        play = 'wrong'
+        say = t('wrongGuess', { hero: byId(pending.charId)?.name[lang] })
+      } else {
+        play = pending.answer ? 'yes' : 'no'
+        say = yesNoWord(pending.answer)
+      }
+    }
+    if (!key || announced.current === key) return
+    announced.current = key
+    if (sound && play) sfx[play]()
+    if (voice && say) speak(say, lang)
+  }, [pending, answered, myTurn, game.id, log.length, sound, voice, lang])
 
   async function run(fn) {
     setBusy(true)
@@ -265,9 +297,17 @@ function QuestionSheet({ asked, busy, onClose, onPick, onFree }) {
             .filter((q) => !asked.has(q.id))
             .map((q) => (
               <li key={q.id}>
-                <button type="button" disabled={busy} onClick={() => onPick(q)}>
+                <button type="button" className="pickq" disabled={busy} onClick={() => onPick(q)}>
                   <span className="qicon">{q.icon}</span>
                   <span>{q[lang]}</span>
+                </button>
+                <button
+                  type="button"
+                  className="listen"
+                  aria-label={t('listen')}
+                  onClick={() => speak(q[lang], lang)}
+                >
+                  🔊
                 </button>
               </li>
             ))}
